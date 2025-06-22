@@ -1,13 +1,16 @@
-
 import React from 'react';
 import { ArrowRight, Shield, Zap, Users } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const navigate = useNavigate();
+
+  const goToContact = () => {
+    navigate('/contact');
+  };
+
+  const goToServices = () => {
+    navigate('/services');
   };
 
   return (
@@ -25,13 +28,16 @@ const Hero = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <button 
-                onClick={scrollToContact}
+                onClick={goToContact}
                 className="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors flex items-center justify-center group"
               >
                 Get Free Consultation
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
               </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-900 transition-colors">
+              <button 
+                onClick={goToServices}
+                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-900 transition-colors"
+              >
                 View Our Services
               </button>
             </div>
